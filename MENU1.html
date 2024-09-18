@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Thai Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+        background: linear-gradient(135deg, rgb(0, 0, 0), #dd21b1);
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        border-radius: 0px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 80px auto 0 auto;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    /* Categories section */
+    .categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .category-btn {
+      background: linear-gradient(135deg, rgb(255, 255, 255), #dd21b1);
+      color: rgb(0, 0, 0);
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 180px;
+      text-align: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-btn:hover {
+      background-color: #5b86e5;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-category {
+      display: none;
+      text-align: center;
+    }
+
+    .menu-category.active {
+      display: block;
+    }
+
+    .menu-category img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 22px;
+      }
+
+      .category-btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .categories {
+        gap: 10px;
+      }
+
+      .menu-container {
+        margin-top: 70px;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      .menu-category img {
+        max-width: 100%;
+      }
+    }
+  </style>
+  <script>
+    function showCategory(category) {
+      const categories = document.querySelectorAll('.menu-category');
+      categories.forEach(cat => {
+        if (cat.id === category) {
+          cat.classList.add('active');
+        } else {
+          cat.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>Royal Thai Menu</h1>
+</header>
+
+<div class="menu-container">
+  <!-- Categories -->
+  <div class="categories">
+    <button class="category-btn" onclick="showCategory('APPETITISER')">FÖRRÄTTER (APPETITISER)</button>
+    <button class="category-btn" onclick="showCategory('Chicken')">KYCKLING/CHICKEN</button>
+    <button class="category-btn" onclick="showCategory('Beef')">BIFF /BEEF & DUCK / ANKA</button>
+    <button class="category-btn" onclick="showCategory('Shrimp')">RÄKOR /SHRIMP</button>
+    <button class="category-btn" onclick="showCategory('Noodles')">STEXTA NUDLAR & STEKI RIS</button>
+    <button class="category-btn" onclick="showCategory('FourDishes')">FYRA SMA RÄTTER</button>
+    <button class="category-btn" onclick="showCategory('Vegetarian')">VEGETARISKA</button>
+    <button class="category-btn" onclick="showCategory('Barnmenu')">BARNMENY</button>
+    <button class="category-btn" onclick="showCategory('Desserts')">DESSERTS</button>
+    <button class="category-btn" onclick="showCategory('Sushi')">MORIWASE SUSHI</button>
+    <button class="category-btn" onclick="showCategory('MakiRolls')">ROVAL MAKI ROLLS</button>
+    <button class="category-btn" onclick="showCategory('PokeBowl')">Poke'Bowl & Temaki</button>
+    <button class="category-btn" onclick="showCategory('HotDishes')">Varmrätter / Hot dishes</button>
+  </div>
+
+  <!-- Category Images -->
+  <div class="menu-category" id="APPETITISER">
+    <img src="./1.jpg" alt="Appetiser Image">
+  </div>
+
+  <div class="menu-category" id="Chicken">
+    <img src="./2.jpg" alt="Chicken Image">
+  </div>
+
+  <div class="menu-category" id="Beef">
+    <img src="./3.jpg" alt="Beef Image">
+  </div>
+
+  <div class="menu-category" id="Shrimp">
+    <img src="./4.jpg" alt="Shrimp Image">
+  </div>
+
+  <div class="menu-category" id="Noodles">
+    <img src="./4.jpg" alt="Noodles Image">
+  </div>
+
+  <div class="menu-category" id="FourDishes">
+    <img src="./5.jpg" alt="Four Small Dishes Image">
+  </div>
+
+  <div class="menu-category" id="Vegetarian">
+    <img src="./6.jpg" alt="Vegetarian Image">
+  </div>
+
+  <div class="menu-category" id="Barnmenu">
+    <img src="./6.jpg" alt="Barnmenu Image">
+  </div>
+
+  <div class="menu-category" id="Desserts">
+    <img src="./6.jpg" alt="Desserts Image">
+  </div>
+
+  <div class="menu-category" id="Sushi">
+    <img src="./7.jpg" alt="Sushi Image">
+  </div>
+
+  <div class="menu-category" id="MakiRolls">
+    <img src="./8.jpg" alt="Maki Rolls Image">
+  </div>
+
+  <div class="menu-category" id="PokeBowl">
+    <img src="./9.jpg" alt="Poke Bowl Image">
+  </div>
+
+  <div class="menu-category" id="HotDishes">
+    <img src="./9.jpg"' alt="Hot Dishes Image">
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 Royal Thai. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
