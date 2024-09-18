@@ -22,17 +22,17 @@
     }
 
     header {
-        background: linear-gradient(135deg, rgb(0, 0, 0), #dd21b1);
-        color: white;
-        text-align: center;
-        padding: 15px 0;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-        border-radius: 0px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
+      background: linear-gradient(135deg, rgb(0, 0, 0), #dd21b1);
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 0px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
 
     header h1 {
       font-size: 28px;
@@ -145,6 +145,8 @@
       categories.forEach(cat => {
         if (cat.id === category) {
           cat.classList.add('active');
+          // Scroll to the image section
+          cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
           cat.classList.remove('active');
         }
